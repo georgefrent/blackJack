@@ -121,7 +121,7 @@ void music()
 			scanf("%s", qMusic);
 			if ((strcmp(qMusic, "yes") == 0) || (strcmp(qMusic, "YES") == 0) || (strcmp(qMusic, "Yes") == 0))
             {
-                PlaySound(TEXT("Las Vegas Casino Music.wav"), NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
+                PlaySound(TEXT("LasVegasCasinoMusic.wav"), NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
 				correctWordqMusic = 1;
             }
 
@@ -249,6 +249,7 @@ int main()
                 printf("\nDealer decided to hit.\nDealer's next card is: %d\n", cards[j]);
                 dealerSum = dealerSum + cards[j];
                 dealerNumberOfCards++;
+                printf("\nDealer's number of cards: %d\n", dealerNumberOfCards);
                 if (cards[j] == 11 && dealerSum > 21)
                     dealerSum = dealerSum - 10;
                 if (dealerSum > 21)
@@ -270,6 +271,7 @@ int main()
 				printf("\nDealer decided to hit.\nDealer's next card is: %d\n", cards[j]);
 				dealerSum = dealerSum + cards[j];
 				dealerNumberOfCards++;
+				printf("\nDealer's number of cards: %d\n", dealerNumberOfCards);
 				if (cards[j] == 11 && dealerSum > 21)
 					dealerSum = dealerSum - 10;
 				while (dealerSum < 17) // dealer hit until he gets above 16
@@ -277,8 +279,9 @@ int main()
 					dealerSum = dealerSum + cards[j + 1];
 					if (cards[j+1] == 11 && dealerSum > 21)
 						dealerSum = dealerSum - 10;
-					printf("\nDealer decided to hit.\nDealer's next card is: %d\n", cards[j]);
+					printf("\nDealer decided to hit.\nDealer's next card is: %d\n", cards[j + 1]);
 					dealerNumberOfCards++;
+					printf("\nDealer's number of cards: %d\n", dealerNumberOfCards);
 					j++;
 				}
 				if (dealerSum > 21)
@@ -287,7 +290,7 @@ int main()
 					printf("\nBust!\nYou WIN!\nGame over!\nDo you want to play again?\n");
 					cntFor = 0;
 				}
-				else if (playerIsDone == 1 && playerSum < dealerSum&&dealerSum == 21)
+				else if (playerIsDone == 1 && playerSum < dealerSum && dealerSum == 21)
 				{
 					printf("\nYou have: %d\nDealer has:%d\n", playerSum, dealerSum);
 					printf("\nBlackjack!\nDealer WINS!\nGame over!\nDo you want to play again?\n");
@@ -305,7 +308,7 @@ int main()
 					printf("\nBlackjack!\nYou WIN!\nGame over!\nDo you want to play again?\n");
 					cntFor = 0;
 				}
-				else if (dealerIsDone == 1 && playerSum < dealerSum && dealerSum == 21)
+				else if (playerIsDone == 1 && playerSum < dealerSum && dealerSum == 21)
 				{
 					printf("\nYou have: %d\nDealer has:%d\n", playerSum, dealerSum);
 					printf("\nBlackjack!\nDealer WINS!\nGame over!\nDo you want to play again?\n");
