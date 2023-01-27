@@ -220,7 +220,7 @@ int main()
 				if (playerSum > 21)
 				{
 					score();
-                    showDealersCards();
+                    			showDealersCards();
 					printf("\nBust!\nYou LOSE!\nGame over!\n");
 
 					cntFor = 0;
@@ -239,7 +239,7 @@ int main()
 				playerIsDone = 1;
 				if (dealerIsDone == 1 && dealerSum < playerSum && playerSum == 21)
 				{
-                    score();
+                    			score();
 					printf("\nBlackjack!\nYou WIN!\nGame over!\n");
 					cntFor = 0;
 				}
@@ -282,7 +282,7 @@ int main()
 				dealerSum = dealerSum + cards[j];
 				dealerNumberOfCards++;
 				dealersNextCard[dealerHit] = cards [j]; //Memorises the card when the dealer hits
-                dealerHit++;
+                		dealerHit++;
 				if (cards[j] == 11 && dealerSum > 21)
 					dealerSum = dealerSum - 10;
 				while (dealerSum < 17) // dealer hit until he gets above 16
@@ -293,7 +293,7 @@ int main()
 					printf("\nDealer decided to hit.\nDealer's next card is: %d\n", cards[j + 1]);
 					dealerNumberOfCards++;
 					dealersNextCard[dealerHit] = cards[j + 1]; //Memorises the card when the dealer hits
-                    dealerHit++;
+                    			dealerHit++;
 					j++;
 				}
 				if (dealerSum > 21)
